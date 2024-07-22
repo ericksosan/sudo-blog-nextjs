@@ -123,8 +123,8 @@ export default function ArticlesPage() {
 
             <ul className="divide-y divide-neutral/50 flex flex-col">
               {
-                CATEGORIES.slice(0, 5).map((category) => (
-                  <li className="hover:bg-base-300 transition-colors duration-300 ease-linear px-4 py-2">
+                CATEGORIES.slice(0, 5).map((category, i) => (
+                  <li key={i} className="hover:bg-base-300 transition-colors duration-300 ease-linear px-4 py-2">
                     <Link href={`/articles?category=${category}`} className="flex flex-row items-center gap-x-1.5 text-sm">
                       {category}
                     </Link>

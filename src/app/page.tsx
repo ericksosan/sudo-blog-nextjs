@@ -162,8 +162,8 @@ export default function HomePage() {
 
           <ul className="divide-y divide-neutral/50 flex flex-col">
             {
-              Array(5).fill('').map(() => (
-                <li className="hover:bg-base-300 transition-colors duration-300 ease-linear px-4 py-2">
+              Array(5).fill('').map((_, i) => (
+                <li key={i} className="hover:bg-base-300 transition-colors duration-300 ease-linear px-4 py-2">
                   <Link href="" className="flex flex-row items-center gap-x-1.5">
                     <div className="avatar placeholder">
                       <div className="bg-neutral text-neutral-content w-8 rounded-full">
