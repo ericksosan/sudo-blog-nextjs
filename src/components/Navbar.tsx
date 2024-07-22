@@ -1,4 +1,12 @@
+import { TerminalIcon } from "lucide-react"
 import Link from "next/link"
+
+const NAVBAR_ITEMS = [
+  { path: '/', title: 'Home', active: false },
+  { path: '/articles', title: 'Articles', active: false },
+  { path: '/about', title: 'About', active: false },
+  { path: '/auth/signin', title: 'Sign in', active: true },
+]
 
 export const Navbar = () => {
   return (
@@ -6,21 +14,24 @@ export const Navbar = () => {
       <nav className="navbar mx-auto max-w-5xl px-4">
         <div className="navbar-start">
           <Link href="/" className="text-xl flex items-center font-bold text-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="4 17 10 11 4 5" />
-              <line x1={12} x2={20} y1={19} y2={19} />
-            </svg>
+            <TerminalIcon />
             Sudo
           </Link>
         </div>
         <div className="navbar-end">
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal px-1 text-base gap-2">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/articles">Articles</Link></li>
-              <li><Link href="/about">About</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
-              <li><Link href="/signin" className="active">Sign in</Link></li>
+              {
+                NAVBAR_ITEMS.map((item) => (
+                  <li key={item.path}>
+                    <Link
+                      href={item.path}
+                      className={(item.active) ? 'active' : ''}>
+                      {item.title}
+                    </Link>
+                  </li>
+                ))
+              }
             </ul>
           </div>
 
@@ -31,11 +42,17 @@ export const Navbar = () => {
               </svg>
             </div>
             <ul tabIndex={0} className="menu dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-1">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/articles">Articles</Link></li>
-              <li><Link href="/about">About</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
-              <li><Link href="/signin" className="active">Sign in</Link></li>
+              {
+                NAVBAR_ITEMS.map((item) => (
+                  <li key={item.path}>
+                    <Link
+                      href={item.path}
+                      className={item.active ? 'active' : ''}>
+                      {item.title}
+                    </Link>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>

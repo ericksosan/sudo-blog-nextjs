@@ -6,10 +6,10 @@ import { Footer, Navbar } from "@/components"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Sudo",
+  title: "Code Smarter, Not Harder | Sudo",
   icons: '/sudo_logo.svg',
-  description: `Elevate your tech knowledge with Sudo. Dive into the world of programming, Linux,
-  cybersecurity, and more. Your journey to mastering the command line starts here.`,
+  description: `Code Smarter, Not Harder. Dive into programming, Linux, cybersecurity, and more with Sudo.
+  Your journey to mastering tech starts here.`,
 }
 
 export default function RootLayout({

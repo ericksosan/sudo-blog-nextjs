@@ -1,15 +1,28 @@
+import { Bookmark, ChevronRight, Heart, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-const categories = [
-  'Facebook',
-  'Disney',
-  'Airbnb',
-  'Apple',
-  'Spark',
-  'Samsung',
-  'Quora',
-  'Sass',
+const CATEGORIES = [
+  "Web Development",
+  "JavaScript",
+  "CSS",
+  "HTML",
+  "Frameworks",
+  "Back-end",
+  "Front-end",
+  "Databases",
+  "DevOps",
+  "Security",
+  "APIs",
+  "Tools",
+  "Tutorials",
+  "Projects",
+  "Interviews",
+  "News",
+  "Opinions",
+  "Resources",
+  "Events",
+  "Trends"
 ]
 
 export default function HomePage() {
@@ -28,9 +41,11 @@ export default function HomePage() {
                 Sudo
               </span>
             </h1>
-            <p className="py-6">Elevate your tech knowledge with Sudo. Dive into the world of programming, Linux,
-              cybersecurity, and more. Your journey to mastering the command line starts here.</p>
-            <Link href="/sign-up" className="btn btn-primary">Get Started</Link>
+            <p className="py-6">
+              Code Smarter, Not Harder. Dive into programming, Linux, cybersecurity, and more with Sudo.
+              Your journey to mastering tech starts here.
+            </p>
+            <Link href="/auth/signup" className="btn btn-primary">Get Started</Link>
             <Link href="/articles" className="btn btn-outline ml-2">Explore Articles</Link>
           </div>
           <div className="hidden lg:block lg:w-1/2">
@@ -51,82 +66,24 @@ export default function HomePage() {
       </section>
 
       <section className="pb-4 space-y-2">
-        <h2 className="font-bold text-xl inline-block uppercase">Recent posts</h2>
-
-        <div className="py-4">
-          <article className="">
-            <Link href="" className="space-y-2">
-              <div className="flex items-center gap-2">
-                <div className="avatar placeholder">
-                  <div className="bg-neutral text-neutral-content w-7 rounded-full">
-                    <span className="text-xs">ES</span>
-                  </div>
-                </div>
-                <span className="text-sm font-medium">Erick Manuel Sosa</span>
-              </div>
-              <div className="flex flex-row items-start justify-between space-y-2">
-                <div className="flex flex-col space-y-2 items-start max-w-2xl">
-                  <h3 className="font-bold text-2xl">
-                    The resume that got a software engineer a $300,000 job
-                    at Google.
-                  </h3>
-
-                  <p className="text-sm line-clamp-2 lg:line-clamp-3">Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Dolores
-                    quasi
-                    reiciendis
-                    sint suscipit
-                    soluta culpa voluptatibus nam accusantium hic? Doloremque repellendus magni officiis
-                    reprehenderit
-                    quaerat quisquam in, assumenda numquam deserunt.
-                  </p>
-                  <div className="flex items-center gap-2 justify-between w-full">
-                    <div className="flex items-center gap-4">
-                      <span className="text-sm">3d ago</span>
-                      <span className="flex items-center gap-x-0.5">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                          viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                          strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                        </svg>
-                        3
-                      </span>
-                    </div>
-                    <button>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path fill="#000"
-                          d="M17.5 1.25a.5.5 0 0 1 1 0v2.5H21a.5.5 0 0 1 0 1h-2.5v2.5a.5.5 0 0 1-1 0v-2.5H15a.5.5 0 0 1 0-1h2.5zm-11 4.5a1 1 0 0 1 1-1H11a.5.5 0 0 0 0-1H7.5a2 2 0 0 0-2 2v14a.5.5 0 0 0 .8.4l5.7-4.4 5.7 4.4a.5.5 0 0 0 .8-.4v-8.5a.5.5 0 0 0-1 0v7.48l-5.2-4a.5.5 0 0 0-.6 0l-5.2 4z">
-                        </path>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </article>
-        </div>
-      </section>
-
-      <section className="pb-4 space-y-2">
-        <h2 className="font-bold text-xl inline-block uppercase">
-          MOST POPULAR CATEGORIES
+        <h2 className="font-semibold text-lg">
+          Most popular categories
         </h2>
 
         <div className="py-4 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)] group hover:[animation-play-state:paused]">
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-2 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused] will-change-transform">
-            {categories.map((category, index) => (
-              <li key={index} className="card bg-primary min-w-max px-3 py-1 rounded-xl">
-                <Link href="" className="font-medium text-primary-content">
+            {CATEGORIES.map((category, index) => (
+              <li key={index} className="card bg-neutral min-w-max px-3 py-1 rounded-sm">
+                <Link href={`/category/${category}`} className="font-medium text-neutral-content">
                   {category}
                 </Link>
               </li>
             ))}
           </ul>
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-2 [&_img]:max-w-none animate-infinite-scroll [animation-delay:-25s] group-hover:[animation-play-state:paused] will-change-transform" aria-hidden="true">
-            {categories.map((category, index) => (
-              <li key={index} className="card bg-primary min-w-max px-3 py-1 rounded-xl">
-                <Link href="" className="font-medium text-primary-content">
+          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-2 [&_img]:max-w-none animate-infinite-scroll group-hover:[animation-play-state:paused] will-change-transform" aria-hidden="true">
+            {CATEGORIES.map((category, index) => (
+              <li key={index} className="card bg-neutral min-w-max px-3 py-1 rounded-sm">
+                <Link href={`/category/${category}`} className="font-medium text-neutral-content">
                   {category}
                 </Link>
               </li>
@@ -134,6 +91,95 @@ export default function HomePage() {
           </ul>
         </div>
       </section>
+
+      <div className="flex flex-col items-start lg:flex-row gap-4 lg:justify-between py-2">
+        <section className="pb-4 max-w-2xl w-full">
+          <h2 className="font-semibold text-lg border-b border-neutral/50 inline-block w-full pb-1">Recent posts</h2>
+
+          <div className="py-4 flex flex-col divide-y divide-neutral/50">
+            {
+              Array(10).fill('').map((_, i) => (
+                <article key={i} className="py-2 [&>div>div]:hover:translate-y-0 relative">
+                  <Link href="" className="space-y-2">
+                    <div className="flex flex-row items-start justify-between space-y-2">
+                      <div className="flex flex-col space-y-2 items-start max-w-2xl text-left">
+                        <h3 className="font-bold text-xl">
+                          The resume that got a software engineer a $300,000 job
+                          at Google.
+                        </h3>
+
+                        <p className="text-sm line-clamp-2 lg:line-clamp-2 max-w-xl">Lorem ipsum dolor sit amet consectetur
+                          adipisicing elit. Dolores
+                          quasi
+                          reiciendis
+                          sint suscipit
+                          soluta culpa voluptatibus nam accusantium hic? Doloremque repellendus magni officiis
+                          reprehenderit
+                          quaerat quisquam in, assumenda numquam deserunt.
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                  <div className="text-[11px] uppercase text-neutral-content/70 my-2">
+                    <time>7 Jun</time>{" "}
+                    <span>•</span>{" "}
+                    <Link href="" className="link link-hover">Erick Manuel Sosa</Link>
+                  </div>
+                  <div className="min-h-6 mt-1 overflow-hidden">
+                    <div className="flex items-center justify-between max-w-md  translate-y-full transition-transform duration-300 ease-in-out">
+                      <button className="btn btn-xs btn-ghost">
+                        <Heart className="size-4" />
+                        1
+                      </button>
+
+                      <button className="btn btn-xs btn-ghost">
+                        <MessageCircle className="size-4" />
+                        1
+                      </button>
+
+                      <button className="btn btn-xs btn-ghost">
+                        <Bookmark className="size-4" />
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+
+          <Link href="/articles" className="btn btn-neutral font-medium mt-2">
+            See all
+            <ChevronRight className="size-5" />
+          </Link>
+        </section>
+
+        <aside className="w-full lg:w-auto lg:flex-grow lg:sticky lg:top-4 bg-base-100 rounded-xl hidden lg:block border border-neutral/50 overflow-hidden">
+          <div className="flex justify-between items-center">
+            <h2 className="font-semibold text-lg px-4 py-2 border-b border-neutral/50 inline-block w-full">
+              Top writers
+            </h2>
+          </div>
+
+          <ul className="divide-y divide-neutral/50 flex flex-col">
+            {
+              Array(5).fill('').map(() => (
+                <li className="hover:bg-base-300 transition-colors duration-300 ease-linear px-4 py-2">
+                  <Link href="" className="flex flex-row items-center gap-x-1.5">
+                    <div className="avatar placeholder">
+                      <div className="bg-neutral text-neutral-content w-8 rounded-full">
+                        <span className="text-xs">ES</span>
+                      </div>
+                    </div>
+                    <div className="">
+                      <h4>Erick Manuel Sosa</h4>
+                    </div>
+                  </Link>
+                </li>
+              ))
+            }
+          </ul>
+        </aside>
+      </div>
     </>
   )
 }
