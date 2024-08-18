@@ -80,7 +80,7 @@ export const LoginForm = () => {
         Sign in
       </ButtonLoading>
       <div className="p-4 flex items-center justify-center">
-        <span>Don't have an account?{" "}
+        <span>Don&apos;t have an account?{" "}
           <Link href="/auth/signup" className="text-secondary font-medium group relative w-max">
             Sign up
             <span className="absolute -bottom-1 left-1/2 w-0 transition-all duration-300 h-0.5 bg-secondary group-hover:w-3/6" />

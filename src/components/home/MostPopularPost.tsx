@@ -8,7 +8,7 @@ export const MostPopularPost = async () => {
   return (
     <section>
       <div className="flex flex-col mb-4">
-        <span className="text-xs">what's hot</span>
+        <span className="text-xs">what&apos;s hot</span>
         <h2 className="font-semibold text-2xl">
           Most popular
         </h2>
