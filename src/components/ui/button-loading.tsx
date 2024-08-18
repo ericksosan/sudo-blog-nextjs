@@ -1,6 +1,4 @@
-import React from 'react'
-
-interface ButtonLoadingProps {
+type ButtonLoadingProps = {
   children: React.ReactNode,
   loading: boolean,
   className?: string

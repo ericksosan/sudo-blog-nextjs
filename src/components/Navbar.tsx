@@ -1,60 +1,106 @@
-import { TerminalIcon } from "lucide-react"
+"use client"
+
 import Link from "next/link"
+import { ChevronDownIcon, MenuIcon, TerminalIcon } from "lucide-react"
+import { useSession, signOut } from "next-auth/react"
 
 const NAVBAR_ITEMS = [
-  { path: '/', title: 'Home', active: false },
-  { path: '/articles', title: 'Articles', active: false },
-  { path: '/about', title: 'About', active: false },
+  { path: '/', title: 'Home' },
+  { path: '/about', title: 'About' },
   { path: '/auth/signin', title: 'Sign in', active: true },
 ]
 
 export const Navbar = () => {
+  const { data: session } = useSession()
+
+  const filteredItems = NAVBAR_ITEMS.filter(item => {
+    if (item.path === '/auth/signin' && session) {
+      return false
+    }
+    return true
+  })
+
+  const handleSignOut = async () => {
+    await signOut()
+  }
+
   return (
-    <header className="bg-base-100 shadow-sm lg:shadow-none lg:bg-transparent relative">
-      <nav className="navbar mx-auto max-w-5xl px-4">
+    <header className="bg-base-300 lg:bg-transparent">
+      <nav className="navbar px-4 lg:px-0">
         <div className="navbar-start">
-          <Link href="/" className="text-xl flex items-center font-bold text-primary">
+          <Link href="/" className="text-lg items-center font-bold text-primary hidden lg:flex">
             <TerminalIcon />
             Sudo
           </Link>
-        </div>
-        <div className="navbar-end">
-          <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 text-base gap-2">
-              {
-                NAVBAR_ITEMS.map((item) => (
-                  <li key={item.path}>
-                    <Link
-                      href={item.path}
-                      className={(item.active) ? 'active' : ''}>
-                      {item.title}
-                    </Link>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
 
-          <div className="dropdown dropdown-bottom dropdown-end z-50">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
+          <div className="drawer w-auto lg:hidden">
+            <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+            <div className="flex-none">
+              <label htmlFor="my-drawer" className="drawer-button cursor-pointer">
+                <MenuIcon />
+              </label>
             </div>
-            <ul tabIndex={0} className="menu dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-1">
-              {
-                NAVBAR_ITEMS.map((item) => (
-                  <li key={item.path}>
-                    <Link
-                      href={item.path}
-                      className={item.active ? 'active' : ''}>
-                      {item.title}
-                    </Link>
-                  </li>
-                ))
-              }
-            </ul>
+            <div className="drawer-side z-50">
+              <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+              <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+                <li>
+                  <Link href="/" className="text-lg items-center font-bold text-primary flex">
+                    <TerminalIcon />
+                    Sudo
+                  </Link>
+                </li>
+                {
+                  filteredItems.map((item) => (
+                    <li key={item.path}>
+                      <Link
+                        href={item.path}
+                        className={(item?.active) ? 'active' : ''}>
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
           </div>
+        </div>
+
+        <div className="navbar-end">
+          <ul className="menu menu-horizontal px-1 hidden lg:flex gap-2">
+            {
+              filteredItems.map((item) => (
+                <li key={item.path}>
+                  <Link
+                    href={item.path}
+                    className={(item?.active) ? 'active' : ''}>
+                    {item.title}
+                  </Link>
+                </li>
+              ))
+            }
+          </ul>
+
+          {
+            (session)
+              ? (<div className="dropdown dropdown-end">
+                <ul className="menu p-0 text-primary">
+                  <li tabIndex={0} role="button">
+                    <a className="font-medium">
+                      <span>{session?.user?.name}</span>
+                      <ChevronDownIcon size={16} />
+                    </a>
+                  </li>
+                </ul>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-5 w-52 p-2 shadow">
+                  <li onClick={handleSignOut}>
+                    <button>Log Out</button>
+                  </li>
+                </ul>
+              </div>)
+              : null
+          }
         </div>
       </nav>
     </header>

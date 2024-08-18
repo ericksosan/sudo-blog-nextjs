@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 const config: Config = {
   content: [
@@ -7,28 +7,16 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      animation: {
-        'infinite-scroll': 'infinite-scroll 25s linear infinite',
-      },
-      keyframes: {
-        'infinite-scroll': {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-100%)' },
-        }
-      },
-    },
+    extend: {},
   },
-  variants: {
-    extend: {
-      animation: ['hover', 'group-hover'],
-    },
-  },
+
   daisyui: {
-    themes: ["forest"],
+    themes: [
+      "winter",
+    ],
   },
   plugins: [
-    require('daisyui')
+    require('daisyui'),
   ],
-};
-export default config;
+}
+export default config
