@@ -1,5 +1,4 @@
 import { loginSchema, signupSchema } from "@/lib/zod"
-import { Comment } from "@prisma/client";
 import { z } from "zod"
 
 export type LoginFormInputs = z.infer<typeof loginSchema>
@@ -23,6 +22,15 @@ export interface Post {
 export interface Category {
   id: string;
   name: string;
+}
+
+export interface Comment {
+  id: string;
+  postId: string;
+  userId: string;
+  content: string;
+  createdAt: Date;
+  user: User
 }
 
 export interface User {

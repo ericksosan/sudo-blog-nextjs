@@ -1,5 +1,4 @@
-import { Post } from '@/types';
-import { Comment } from '@prisma/client';
+import type { Post, Comment } from '@/types';
 import axios from 'axios';
 
 export const api = axios.create({

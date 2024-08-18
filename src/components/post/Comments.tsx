@@ -1,6 +1,5 @@
 import { formatDate } from "@/lib"
 import { fetchCommantsOfPost } from "@/lib/data"
-import { Trash2Icon } from "lucide-react"
 
 export async function Comments({ postId }: { postId: string }) {
   const comments = await fetchCommantsOfPost(postId)
@@ -12,7 +11,7 @@ export async function Comments({ postId }: { postId: string }) {
           <li key={comment.id} className="border-2 bg-base-100 p-6 rounded-xl space-y-3">
             <div className="flex items-center justify-between">
               <div>
-                <span className="font-semibold text-base">{comment?.user?.fullname}</span>{" "}
+                <span className="font-semibold text-base">{comment.user?.fullname}</span>{" "}
                 <span>•</span>{" "}
                 <time className="text-sm opacity-70">{formatDate(comment.createdAt)}</time>
               </div>
