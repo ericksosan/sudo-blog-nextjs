@@ -1,5 +1,7 @@
-import type { Post, Comment } from '@/types';
+import type { Post, Comment, Category } from '@/types';
 import axios from 'axios';
+import { z } from 'zod';
+import { writePostSchema } from './zod';
 
 export const api = axios.create({
   baseURL: process.env.BACK_BASE_URL,
@@ -11,7 +13,7 @@ export const fetchPosts = async (): Promise<Post[]> => {
     return response.data
   } catch (error) {
     console.error('Error fetching posts:', error)
-    throw new Error('Failed to fetch posts')
+    return []
   }
 }
 
@@ -44,3 +46,24 @@ export const fetchMostViewedPosts = async (): Promise<Post[]> => {
     return []
   }
 }
+type WritePostData = z.infer<typeof writePostSchema>
+
+export const fetchCreatePost = async (data: WritePostData): Promise<Post> => {
+  try {
+    const response = await api.post<Post>('/api/post/write', data);
+    return response.data;
+  } catch (error) {
+    console.error('Error creating post:', error);
+    throw new Error('Failed to create post');
+  }
+};
+
+export const fetchCategories = async (): Promise<Category[]> => {
+  try {
+    const response = await api.get<Category[]>('/api/post/category');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    throw new Error('Failed to fetch categories');
+  }
+};

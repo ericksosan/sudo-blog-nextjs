@@ -26,3 +26,10 @@ export const commentSchema = z.object({
   userId: z.string({ required_error: 'User id is required' }).min(1, 'User id is required'),
   content: z.string({ required_error: 'Comment content is required' }).min(1, 'Comment content is required'),
 })
+
+export const writePostSchema = z.object({
+  userId: z.string(),
+  title: z.string(),
+  content: z.string(),
+  categoryId: z.string(),
+});

@@ -20,7 +20,7 @@ export const TopPost = async () => {
           style={{ clipPath: 'polygon(0% 15%, 15% 0%, 35% 5%, 50% 0%, 65% 10%, 50% 0%, 0% 10%, 10% 30%, 100% 50%, 90% 70%, 50% 32%, 85% 100%, 70% 95%, 50% 100%, 30% 90%, 15% 80%, 0% 85%, 10% 65%, 0% 50%, 5% 30%)' }} />
       </div>
       <div className="hero-content flex-col lg:flex-row px-0">
-        <div className="text-center lg:text-left lg:pr-12 lg:w-1/2 relative space-y-3">
+        <Link href={`/post/${mostViewedPost.slug}`} className="text-center lg:text-left lg:pr-12 lg:w-1/2 relative space-y-3">
           <div className="badge badge-error text-sm">
             <FlameIcon size={15} />
             Most Viewed
@@ -42,11 +42,11 @@ export const TopPost = async () => {
 
           <span className="text-xs font-medium block">{mostViewedPost.views} views</span>
 
-          <Link href={`/post/${mostViewedPost.slug}`} className="underline text-secondary flex items-center gap-1 text-sm font-medium [&>svg]:hover:translate-x-1">
+          <div className="underline text-secondary flex items-center gap-1 text-sm font-medium [&>svg]:hover:translate-x-1">
             Read More
             <MoveRightIcon size={16} className="transition-transform duration-300 ease-linear" />
-          </Link>
-        </div>
+          </div>
+        </Link>
         <div className="hidden lg:block lg:w-1/2">
           <div className="relative w-full h-80 overflow-hidden rounded-xl mask mask-squircle">
             <div className="absolute inset-0 bg-gradient-to-t from-primary to-secondary opacity-50 z-50"></div>

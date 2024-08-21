@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
-
 import slugify from 'slugify';
 
 const prisma = new PrismaClient();
@@ -15,11 +14,16 @@ async function main() {
 
   await prisma.category.createMany({
     data: [
-      { id: '1', name: 'Technology' },
-      { id: '2', name: 'Health' },
-      { id: '3', name: 'Travel' },
-      { id: '4', name: 'Food' },
-      { id: '5', name: 'Lifestyle' },
+      { id: '1', name: 'Software Development' },
+      { id: '2', name: 'Artificial Intelligence and Machine Learning' },
+      { id: '3', name: 'Cybersecurity and Data Protection' },
+      { id: '4', name: 'Internet of Things (IoT)' },
+      { id: '5', name: 'Telecommunications and Networking' },
+      { id: '6', name: 'Emerging Technologies (Augmented Reality, Virtual Reality, Blockchain, etc.)' },
+      { id: '7', name: 'Cloud Computing and Data Storage' },
+      { id: '8', name: 'Web Design and Development' },
+      { id: '9', name: 'Hardware and Electronic Devices' },
+      { id: '10', name: 'Information Technology and Information Systems' },
     ],
   });
 
@@ -46,60 +50,99 @@ async function main() {
     {
       id: '1',
       userId: '1',
-      title: 'The Future of Artificial Intelligence',
-      content: 'Artificial Intelligence (AI) is no longer a concept of the future; it is here, and it is transforming our world in countless ways. From healthcare to finance, AI is revolutionizing industries by enhancing efficiency, accuracy, and decision-making. The implications of AI are profound, and its potential continues to grow as we develop more advanced technologies. However, with great power comes great responsibility. Ethical considerations surrounding AI, such as privacy, security, and job displacement, must be addressed to ensure that its benefits are maximized while minimizing potential harms.',
+      title: 'The Future of "Software Development"',
+      content: 'Software development is constantly evolving, with new technologies, methodologies, and best practices emerging. In this post, we explore the latest trends and innovations shaping the future of software development, including the rise of low-code/no-code platforms, the increased adoption of Agile and DevOps, and the integration of emerging technologies like artificial intelligence and machine learning.',
       categoryId: '1',
     },
     {
       id: '2',
       userId: '2',
-      title: 'Mindful Eating: Beyond Diets',
-      content: 'Mindful eating is a practice that encourages individuals to be fully present during their meals, paying attention to their hunger and satiety cues without judgment. Unlike traditional diets that often promote restriction and guilt, mindful eating fosters a positive relationship with food and body. By savoring each bite, recognizing emotional triggers for eating, and choosing nourishing foods, individuals can improve their overall well-being, maintain a healthy weight, and enjoy a more balanced and fulfilling approach to eating.',
+      title: 'Unlocking the Potential of "Artificial Intelligence and Machine Learning"',
+      content: 'Artificial Intelligence (AI) has become a transformative force across industries, revolutionizing how we approach problem-solving, decision-making, and automation. In this article, we delve into the latest advancements in AI, from natural language processing to computer vision, and explore the immense potential of this technology to enhance productivity, improve decision-making, and unlock new possibilities.',
       categoryId: '2',
     },
     {
       id: '3',
       userId: '3',
-      title: 'Sustainable Travel: Explore the World Without Leaving a Trace',
-      content: 'Sustainable travel is about making mindful choices that minimize our environmental impact and support local communities. From choosing eco-friendly accommodations to participating in conservation efforts, travelers can explore the world while preserving it for future generations. Sustainable travel also involves respecting local cultures and traditions, reducing waste, and supporting businesses that prioritize sustainability. By adopting these practices, we can enjoy enriching travel experiences while contributing to the health of our planet.',
+      title: 'Navigating the "Cybersecurity and Data Protection" Landscape',
+      content: 'Cybersecurity has become a critical concern for individuals and organizations alike, as the threat of data breaches, malware, and cyber attacks continues to grow. In this post, we examine the evolving landscape of cybersecurity, highlighting the latest threats, best practices for data protection, and the importance of proactive measures to safeguard sensitive information.',
       categoryId: '3',
     },
     {
       id: '4',
       userId: '4',
-      title: 'Fusion Cuisine: Flavors of the World on Your Plate',
-      content: 'Fusion cuisine combines ingredients and techniques from various culinary traditions to create innovative and exciting dishes. This approach to cooking celebrates cultural diversity and creativity, resulting in unique flavors and textures that delight the palate. From sushi burritos to kimchi tacos, fusion cuisine offers endless possibilities for culinary exploration. Whether you are a professional chef or a home cook, experimenting with fusion recipes can broaden your culinary horizons and inspire new culinary creations.',
+      title: 'Transforming the World with the "Internet of Things (IoT)"',
+      content: 'The Internet of Things (IoT) is revolutionizing the way we interact with our environment, from smart homes to connected cities. In this article, we explore the exciting advancements in IoT technology, the applications across various sectors, and the challenges and opportunities that come with the widespread adoption of this transformative technology.',
       categoryId: '4',
     },
     {
       id: '5',
       userId: '5',
-      title: 'Minimalism: Living with Less to Experience More',
-      content: 'Minimalism is a lifestyle that emphasizes simplicity and intentionality. By decluttering our physical and mental spaces, we can focus on what truly matters and find greater fulfillment. Minimalism encourages us to prioritize experiences over possessions, reduce stress, and live more sustainably. It is not about deprivation but about making mindful choices that align with our values and goals. Embracing minimalism can lead to a more balanced, joyful, and purposeful life.',
+      title: 'Advancing "Telecommunications and Networking"',
+      content: 'Telecommunications and networking technologies are the backbone of our increasingly connected world. In this post, we delve into the latest developments in areas such as 5G, cloud computing, and software-defined networking, and discuss how these innovations are shaping the future of communication and data transmission.',
       categoryId: '5',
     },
-  ]
+    {
+      id: '6',
+      userId: '1',
+      title: 'Exploring "Emerging Technologies: AR, VR, and Blockchain"',
+      content: 'The world of technology is constantly expanding, with a myriad of innovative solutions emerging that have the potential to transform the way we live and work. In this article, we explore the latest advancements in emerging technologies, including augmented reality, virtual reality, and blockchain, and discuss their far-reaching implications across various industries.',
+      categoryId: '6',
+    },
+    {
+      id: '7',
+      userId: '2',
+      title: 'The Rise of "Cloud Computing and Data Storage"',
+      content: 'Cloud computing and data storage have become integral components of modern technology infrastructure, enabling organizations to access scalable, flexible, and cost-effective computing resources. In this post, we examine the evolution of cloud computing, the benefits it offers, and the emerging trends shaping the future of data storage and management.',
+      categoryId: '7',
+    },
+    {
+      id: '8',
+      userId: '3',
+      title: 'Mastering "Web Design and Development"',
+      content: 'Web design and development are constantly evolving, with new frameworks, tools, and best practices emerging to create engaging and user-friendly online experiences. In this article, we delve into the latest trends and techniques in web design and development, from responsive design to the integration of emerging technologies, and explore how to build effective and visually appealing websites.',
+      categoryId: '8',
+    },
+    {
+      id: '9',
+      userId: '4',
+      title: 'The Future of "Hardware and Electronic Devices"',
+      content: 'As technology continues to advance, the hardware and electronic devices that power our digital landscape are also undergoing significant transformations. In this post, we examine the latest innovations in areas such as consumer electronics, embedded systems, and the integration of emerging technologies like AI and IoT into hardware solutions.',
+      categoryId: '9',
+    },
+    {
+      id: '10',
+      userId: '5',
+      title: 'Navigating the World of "Information Technology and Information Systems"',
+      content: 'Information Technology (IT) and Information Systems (IS) are the backbone of modern organizations, enabling seamless data management, communication, and decision-making. In this article, we explore the evolving landscape of IT and IS, highlighting the latest trends, best practices, and the critical role these disciplines play in driving organizational growth and efficiency.',
+      categoryId: '10',
+    },
+  ];
 
-  const postsSluged = posts.map((post) => {
-    const slug = slugify(post.title, { lower: true, strict: true })
-
+  const postsSlugged = posts.map((post) => {
+    const slug = slugify(post.title, { lower: true, strict: true });
     return {
       ...post,
-      slug
-    }
-  })
+      slug,
+    };
+  });
 
   await prisma.post.createMany({
-    data: postsSluged
+    data: postsSlugged,
   });
 
   await prisma.comment.createMany({
     data: [
-      { id: '1', postId: '1', userId: '2', content: 'Great post about technology!' },
-      { id: '2', postId: '2', userId: '3', content: 'Very informative, thanks!' },
-      { id: '3', postId: '3', userId: '4', content: 'I love traveling tips, keep them coming!' },
-      { id: '4', postId: '4', userId: '5', content: 'These recipes are amazing!' },
-      { id: '5', postId: '5', userId: '1', content: 'Very useful lifestyle tips, thanks!' },
+      { id: '1', postId: '1', userId: '2', content: 'Great insights on the future of "Software Development"!' },
+      { id: '2', postId: '2', userId: '3', content: 'Fascinating overview of the potential of "Artificial Intelligence and Machine Learning". Looking forward to more!' },
+      { id: '3', postId: '3', userId: '4', content: '"Cybersecurity and Data Protection" is such an important topic, thanks for the comprehensive guide.' },
+      { id: '4', postId: '4', userId: '5', content: 'The "Internet of Things (IoT)" revolution is truly transformative, can\'t wait to see what\'s next.' },
+      { id: '5', postId: '5', userId: '1', content: 'Excellent article on the advancements in "Telecommunications and Networking".' },
+      { id: '6', postId: '6', userId: '2', content: 'Exciting to learn about the latest "Emerging Technologies: AR, VR, and Blockchain", keep them coming!' },
+      { id: '7', postId: '7', userId: '3', content: '"Cloud Computing and Data Storage" are so crucial these days, great overview.' },
+      { id: '8', postId: '8', userId: '4', content: '"Web Design and Development" is an area I\'m really interested in, thanks for the insights.' },
+      { id: '9', postId: '9', userId: '5', content: 'The future of "Hardware and Electronic Devices" is fascinating, can\'t wait to see what\'s next.' },
+      { id: '10', postId: '10', userId: '1', content: 'Excellent overview of the world of "Information Technology and Information Systems", extremely helpful for understanding these fields.' },
     ],
   });
 
@@ -110,6 +153,11 @@ async function main() {
       { id: '3', postId: '3', userId: '4' },
       { id: '4', postId: '4', userId: '5' },
       { id: '5', postId: '5', userId: '1' },
+      { id: '6', postId: '6', userId: '2' },
+      { id: '7', postId: '7', userId: '3' },
+      { id: '8', postId: '8', userId: '4' },
+      { id: '9', postId: '9', userId: '5' },
+      { id: '10', postId: '10', userId: '1' },
     ],
   });
 
@@ -120,6 +168,11 @@ async function main() {
       { id: '3', postId: '3', userId: '5' },
       { id: '4', postId: '4', userId: '1' },
       { id: '5', postId: '5', userId: '2' },
+      { id: '6', postId: '6', userId: '3' },
+      { id: '7', postId: '7', userId: '4' },
+      { id: '8', postId: '8', userId: '5' },
+      { id: '9', postId: '9', userId: '1' },
+      { id: '10', postId: '10', userId: '2' },
     ],
   });
 }

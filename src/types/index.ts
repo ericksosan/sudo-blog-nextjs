@@ -38,3 +38,10 @@ export interface User {
   lastname: string;
   fullname: string
 }
+
+export interface WritePostData {
+  userId: string;
+  title: string;
+  content: string;
+  categoryId: string;
+}

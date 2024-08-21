@@ -94,6 +94,9 @@ export const Navbar = () => {
                 <ul
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-5 w-52 p-2 shadow">
+                  <li>
+                    <Link href="/post/write">Write Post</Link>
+                  </li>
                   <li onClick={handleSignOut}>
                     <button>Log Out</button>
                   </li>

@@ -1,4 +1,4 @@
-import { CommentBox, CommentListSkeleton, Comments, MostPopularPost } from "@/components"
+import { CommentBox, CommentListSkeleton, Comments, MostPopularPost, RenderMarkdown } from "@/components"
 import { fetchPost } from "@/lib/data"
 import { formatDate } from "@/lib"
 import { Suspense } from "react"
@@ -29,7 +29,8 @@ export default async function PostPage({ params }: { params: { slug: string } })
 
       <div className="flex flex-col items-start lg:flex-row gap-8 lg:justify-between py-4">
         <section className="pb-4 max-w-2xl w-full">
-          <p>{post.content}</p>
+
+          <RenderMarkdown content={post.content} />
 
           <div className="flex flex-col gap-4 items-start">
             <h2 className="font-semibold text-lg text-primary py-4 border-b border-base-300 text-center w-full">Comments</h2>

@@ -8,6 +8,7 @@ export * from './home/TopPost';
 export * from './Navbar';
 export * from './post/CommentBox';
 export * from './post/Comments';
+export * from './RenderMarkdown';
 export * from './skeleton/CommentListSkeleton';
 export * from './skeleton/SkeletonPopularPost';
 export * from './skeleton/SkeletonRecentPost';
