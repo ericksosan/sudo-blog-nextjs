@@ -14,16 +14,12 @@ async function main() {
 
   await prisma.category.createMany({
     data: [
-      { id: '1', name: 'Software Development' },
-      { id: '2', name: 'Artificial Intelligence and Machine Learning' },
-      { id: '3', name: 'Cybersecurity and Data Protection' },
-      { id: '4', name: 'Internet of Things (IoT)' },
-      { id: '5', name: 'Telecommunications and Networking' },
-      { id: '6', name: 'Emerging Technologies (Augmented Reality, Virtual Reality, Blockchain, etc.)' },
-      { id: '7', name: 'Cloud Computing and Data Storage' },
-      { id: '8', name: 'Web Design and Development' },
-      { id: '9', name: 'Hardware and Electronic Devices' },
-      { id: '10', name: 'Information Technology and Information Systems' },
+      { id: '1', name: 'Web Development' },
+      { id: '2', name: 'Artificial Intelligence' },
+      { id: '3', name: 'Cybersecurity' },
+      { id: '4', name: 'Internet of Things' },
+      { id: '5', name: 'Cloud Computing' },
+      { id: '6', name: 'Blockchain' },
     ],
   });
 
@@ -50,72 +46,104 @@ async function main() {
     {
       id: '1',
       userId: '1',
-      title: 'The Future of "Software Development"',
-      content: 'Software development is constantly evolving, with new technologies, methodologies, and best practices emerging. In this post, we explore the latest trends and innovations shaping the future of software development, including the rise of low-code/no-code platforms, the increased adoption of Agile and DevOps, and the integration of emerging technologies like artificial intelligence and machine learning.',
+      title: 'The Evolution of Modern Web Development',
+      content: `
+## The Evolution of Modern Web Development
+
+Web development has rapidly evolved over the past few years, driven by advancements in technology and changes in user behavior. From the introduction of responsive design to the rise of JavaScript frameworks, the field has undergone significant transformations. In this post, we will explore how modern web development has evolved, highlighting key trends such as:
+
+- **Progressive Web Apps (PWAs):** Offering native app-like experiences on the web.
+- **Static Site Generators (SSGs):** Enhancing performance with pre-rendered pages.
+- **Jamstack Architecture:** Revolutionizing the way we build websites.
+
+Whether you're a seasoned developer or just starting out, staying up-to-date with these trends is crucial for building fast, efficient, and scalable web applications.
+      `,
       categoryId: '1',
     },
     {
       id: '2',
       userId: '2',
-      title: 'Unlocking the Potential of "Artificial Intelligence and Machine Learning"',
-      content: 'Artificial Intelligence (AI) has become a transformative force across industries, revolutionizing how we approach problem-solving, decision-making, and automation. In this article, we delve into the latest advancements in AI, from natural language processing to computer vision, and explore the immense potential of this technology to enhance productivity, improve decision-making, and unlock new possibilities.',
+      title: 'Harnessing the Power of Artificial Intelligence in Business',
+      content: `
+## Harnessing the Power of Artificial Intelligence in Business
+
+Artificial Intelligence (AI) is transforming industries by automating tasks, enhancing decision-making, and driving innovation. This article delves into the ways AI is being integrated into business strategies, from predictive analytics to customer service automation. Key topics include:
+
+- **Machine Learning Algorithms:** How businesses are leveraging data to predict trends and behaviors.
+- **AI-Powered Customer Support:** The rise of chatbots and virtual assistants.
+- **Ethical AI:** Balancing innovation with privacy and fairness.
+
+By understanding these applications, businesses can unlock new opportunities and stay competitive in a rapidly changing landscape.
+      `,
       categoryId: '2',
     },
     {
       id: '3',
       userId: '3',
-      title: 'Navigating the "Cybersecurity and Data Protection" Landscape',
-      content: 'Cybersecurity has become a critical concern for individuals and organizations alike, as the threat of data breaches, malware, and cyber attacks continues to grow. In this post, we examine the evolving landscape of cybersecurity, highlighting the latest threats, best practices for data protection, and the importance of proactive measures to safeguard sensitive information.',
+      title: 'Building a Robust Cybersecurity Strategy for Your Organization',
+      content: `
+## Building a Robust Cybersecurity Strategy for Your Organization
+
+In an era where data breaches and cyber threats are becoming increasingly common, a robust cybersecurity strategy is essential for any organization. This post provides a comprehensive guide to developing a cybersecurity plan that protects your digital assets and ensures compliance with regulations. Topics covered include:
+
+- **Risk Assessment:** Identifying and prioritizing potential threats.
+- **Security Best Practices:** Implementing multi-factor authentication, encryption, and regular audits.
+- **Incident Response:** Preparing for and responding to security breaches.
+
+By following these guidelines, organizations can significantly reduce the risk of cyber attacks and safeguard their sensitive information.
+      `,
       categoryId: '3',
     },
     {
       id: '4',
       userId: '4',
-      title: 'Transforming the World with the "Internet of Things (IoT)"',
-      content: 'The Internet of Things (IoT) is revolutionizing the way we interact with our environment, from smart homes to connected cities. In this article, we explore the exciting advancements in IoT technology, the applications across various sectors, and the challenges and opportunities that come with the widespread adoption of this transformative technology.',
+      title: 'The Impact of IoT on Smart Cities and Urban Development',
+      content: `
+## The Impact of IoT on Smart Cities and Urban Development
+
+The Internet of Things (IoT) is revolutionizing urban development by enabling smart cities that are more efficient, sustainable, and connected. In this post, we explore the various ways IoT is being utilized to improve city infrastructure, including:
+
+- **Smart Traffic Management:** Reducing congestion and improving transportation efficiency.
+- **Energy Efficiency:** Implementing smart grids and renewable energy sources.
+- **Public Safety:** Enhancing security with IoT-enabled surveillance and emergency response systems.
+
+The integration of IoT into urban planning is transforming how cities operate, making them more livable and resilient.
+      `,
       categoryId: '4',
     },
     {
       id: '5',
       userId: '5',
-      title: 'Advancing "Telecommunications and Networking"',
-      content: 'Telecommunications and networking technologies are the backbone of our increasingly connected world. In this post, we delve into the latest developments in areas such as 5G, cloud computing, and software-defined networking, and discuss how these innovations are shaping the future of communication and data transmission.',
+      title: 'Exploring the Future of Cloud Computing',
+      content: `
+## Exploring the Future of Cloud Computing
+
+Cloud computing has become the backbone of modern IT infrastructure, offering scalable, flexible, and cost-effective solutions for businesses of all sizes. This article examines the future of cloud computing, focusing on emerging trends and technologies such as:
+
+- **Hybrid and Multi-Cloud Strategies:** Combining public and private clouds for optimal performance.
+- **Serverless Computing:** Simplifying the deployment and management of applications.
+- **Cloud-Native Development:** Building applications that fully leverage the cloud's capabilities.
+
+As cloud computing continues to evolve, businesses must adapt to these changes to stay ahead of the curve and maximize the benefits of cloud technologies.
+      `,
       categoryId: '5',
     },
     {
       id: '6',
       userId: '1',
-      title: 'Exploring "Emerging Technologies: AR, VR, and Blockchain"',
-      content: 'The world of technology is constantly expanding, with a myriad of innovative solutions emerging that have the potential to transform the way we live and work. In this article, we explore the latest advancements in emerging technologies, including augmented reality, virtual reality, and blockchain, and discuss their far-reaching implications across various industries.',
+      title: 'Blockchain Beyond Cryptocurrency: Real-World Applications',
+      content: `
+## Blockchain Beyond Cryptocurrency: Real-World Applications
+
+While blockchain is best known as the technology behind cryptocurrencies like Bitcoin, its potential extends far beyond digital currencies. This post explores the various real-world applications of blockchain technology across different industries, including:
+
+- **Supply Chain Management:** Enhancing transparency and traceability.
+- **Healthcare:** Securing patient data and streamlining medical records.
+- **Smart Contracts:** Automating agreements and reducing the need for intermediaries.
+
+By understanding these applications, businesses and developers can harness the power of blockchain to innovate and solve complex challenges.
+      `,
       categoryId: '6',
-    },
-    {
-      id: '7',
-      userId: '2',
-      title: 'The Rise of "Cloud Computing and Data Storage"',
-      content: 'Cloud computing and data storage have become integral components of modern technology infrastructure, enabling organizations to access scalable, flexible, and cost-effective computing resources. In this post, we examine the evolution of cloud computing, the benefits it offers, and the emerging trends shaping the future of data storage and management.',
-      categoryId: '7',
-    },
-    {
-      id: '8',
-      userId: '3',
-      title: 'Mastering "Web Design and Development"',
-      content: 'Web design and development are constantly evolving, with new frameworks, tools, and best practices emerging to create engaging and user-friendly online experiences. In this article, we delve into the latest trends and techniques in web design and development, from responsive design to the integration of emerging technologies, and explore how to build effective and visually appealing websites.',
-      categoryId: '8',
-    },
-    {
-      id: '9',
-      userId: '4',
-      title: 'The Future of "Hardware and Electronic Devices"',
-      content: 'As technology continues to advance, the hardware and electronic devices that power our digital landscape are also undergoing significant transformations. In this post, we examine the latest innovations in areas such as consumer electronics, embedded systems, and the integration of emerging technologies like AI and IoT into hardware solutions.',
-      categoryId: '9',
-    },
-    {
-      id: '10',
-      userId: '5',
-      title: 'Navigating the World of "Information Technology and Information Systems"',
-      content: 'Information Technology (IT) and Information Systems (IS) are the backbone of modern organizations, enabling seamless data management, communication, and decision-making. In this article, we explore the evolving landscape of IT and IS, highlighting the latest trends, best practices, and the critical role these disciplines play in driving organizational growth and efficiency.',
-      categoryId: '10',
     },
   ];
 
@@ -133,16 +161,12 @@ async function main() {
 
   await prisma.comment.createMany({
     data: [
-      { id: '1', postId: '1', userId: '2', content: 'Great insights on the future of "Software Development"!' },
-      { id: '2', postId: '2', userId: '3', content: 'Fascinating overview of the potential of "Artificial Intelligence and Machine Learning". Looking forward to more!' },
-      { id: '3', postId: '3', userId: '4', content: '"Cybersecurity and Data Protection" is such an important topic, thanks for the comprehensive guide.' },
-      { id: '4', postId: '4', userId: '5', content: 'The "Internet of Things (IoT)" revolution is truly transformative, can\'t wait to see what\'s next.' },
-      { id: '5', postId: '5', userId: '1', content: 'Excellent article on the advancements in "Telecommunications and Networking".' },
-      { id: '6', postId: '6', userId: '2', content: 'Exciting to learn about the latest "Emerging Technologies: AR, VR, and Blockchain", keep them coming!' },
-      { id: '7', postId: '7', userId: '3', content: '"Cloud Computing and Data Storage" are so crucial these days, great overview.' },
-      { id: '8', postId: '8', userId: '4', content: '"Web Design and Development" is an area I\'m really interested in, thanks for the insights.' },
-      { id: '9', postId: '9', userId: '5', content: 'The future of "Hardware and Electronic Devices" is fascinating, can\'t wait to see what\'s next.' },
-      { id: '10', postId: '10', userId: '1', content: 'Excellent overview of the world of "Information Technology and Information Systems", extremely helpful for understanding these fields.' },
+      { id: '1', postId: '1', userId: '2', content: 'Insightful post on the evolution of web development, very informative!' },
+      { id: '2', postId: '2', userId: '3', content: 'Great article on AI, I learned a lot about its business applications.' },
+      { id: '3', postId: '3', userId: '4', content: 'This guide on cybersecurity is a must-read for anyone in the field.' },
+      { id: '4', postId: '4', userId: '5', content: 'IoT is indeed transforming our cities, excellent analysis!' },
+      { id: '5', postId: '5', userId: '1', content: 'Cloud computing is the future, thanks for the deep dive.' },
+      { id: '6', postId: '6', userId: '2', content: 'Interesting take on blockchain, beyond just cryptocurrencies.' },
     ],
   });
 
@@ -154,10 +178,6 @@ async function main() {
       { id: '4', postId: '4', userId: '5' },
       { id: '5', postId: '5', userId: '1' },
       { id: '6', postId: '6', userId: '2' },
-      { id: '7', postId: '7', userId: '3' },
-      { id: '8', postId: '8', userId: '4' },
-      { id: '9', postId: '9', userId: '5' },
-      { id: '10', postId: '10', userId: '1' },
     ],
   });
 
@@ -169,20 +189,16 @@ async function main() {
       { id: '4', postId: '4', userId: '1' },
       { id: '5', postId: '5', userId: '2' },
       { id: '6', postId: '6', userId: '3' },
-      { id: '7', postId: '7', userId: '4' },
-      { id: '8', postId: '8', userId: '5' },
-      { id: '9', postId: '9', userId: '1' },
-      { id: '10', postId: '10', userId: '2' },
     ],
   });
+
+  console.log('Database seeded successfully!');
 }
 
 main()
-  .then(() => {
-    console.log('Seeding finished.');
-  })
   .catch((e) => {
-    console.error('Seeding error:', e);
+    console.error(e);
+    process.exit(1);
   })
   .finally(async () => {
     await prisma.$disconnect();

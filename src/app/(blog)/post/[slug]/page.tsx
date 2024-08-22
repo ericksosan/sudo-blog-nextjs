@@ -15,7 +15,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
   }
 
   return (
-    <section>
+    <section className="px-4 md:px-0">
       <div className="min-h-56 flex flex-col items-center justify-center space-y-2">
         <h1 className="text-5xl font-black text-center">
           {post.title}

@@ -33,6 +33,7 @@ export const CommentBox = ({ postId }: { postId: string }) => {
 
     const response = await createComment(result.data)
 
+    console.log(response)
     if (response?.errors) {
       for (const error of response?.errors) {
         toast.error(error.message)
