@@ -42,7 +42,7 @@ export const TopPost = async () => {
 
           <span className="text-xs font-medium block">{mostViewedPost.views} views</span>
 
-          <div className="underline text-secondary flex items-center gap-1 text-sm font-medium [&>svg]:hover:translate-x-1">
+          <div className="underline text-secondary hidden lg:flex items-center gap-1 text-sm font-medium [&>svg]:hover:translate-x-1">
             Read More
             <MoveRightIcon size={16} className="transition-transform duration-300 ease-linear" />
           </div>

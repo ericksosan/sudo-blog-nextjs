@@ -37,3 +37,8 @@ export const fetchCategories = async (): Promise<Category[]> => {
   const response = await api.get<Category[]>('/api/post/category')
   return response.data
 }
+
+export const getPostsByUserId = async (userId: string) => {
+  const response = await api.get(`/api/posts/${userId}`);
+  return response.data;
+};
